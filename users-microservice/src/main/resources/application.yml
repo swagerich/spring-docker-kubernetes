@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: users-msvc
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://host.docker.internal:3306/user_docker
+    password:
+    username: root
+
+    #Jpa-Hibernate
+  jpa:
+      show-sql: true
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL5Dialect
+          format_sql: true
+      hibernate:
+        ddl-auto: update
+server:
+  port: 8001
+

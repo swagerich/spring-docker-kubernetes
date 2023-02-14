@@ -4,9 +4,9 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://postgres14:5432/courses-docker
-    password: 12345
-    username: postgres
+    url: jdbc:postgresql://${DB_HOST:postgres14:5432}/${DB_DATABASE:courses-docker}
+    password: ${DB_PASSWORD:12345}
+    username: ${DB_USERNAME:postgres}
 
     #Jpa-Hibernate
   jpa:
@@ -20,5 +20,8 @@ spring:
     database: postgresql
 
 server:
-  port: 8002
+  port: ${PORT:8002}
 
+micro:
+  users:
+    url: ${USERS_URL:users-msvc:8001/api/v1/users}
